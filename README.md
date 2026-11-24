@@ -49,11 +49,20 @@ step from the basic axioms. The most important results are:
 5. **Wall's question has answer "yes" exactly when no Wall–Sun–Sun primes exist.** This holds
    for all primes, including 2 and 5, which are checked separately.
 
-As far as we can tell, none of this had been machine-checked before. Mathlib, Lean's main
-mathematics library, has Fibonacci numbers, Cassini's identity, gcd(F(a), F(b)) = F(gcd(a, b))
-and quadratic reciprocity. It has no Pisano period and none of Wall's results. Web searches
-for Lean, Isabelle or Coq formalizations of Pisano periods or Wall–Sun–Sun primes found
-nothing.
+As far as we can tell, this is the first machine-checked *proof* of Wall's results. Mathlib,
+Lean's main mathematics library, has Fibonacci numbers, Cassini's identity,
+gcd(F(a), F(b)) = F(gcd(a, b)) and quadratic reciprocity. It has no Pisano period and none of
+Wall's results.
+
+**Prior art.** Google DeepMind's
+[formal-conjectures](https://github.com/google-deepmind/formal-conjectures) repository already
+contains Lean *statements*, without proofs, about Wall–Sun–Sun primes. In
+`FormalConjecturesForMathlib/NumberTheory/WallSunSunPrimes.lean` it defines WSS primes through
+the Lucas-number criterion `L(p) ≡ 1 (mod p²)`, along with Lucas–Wieferich primes. In
+`FormalConjectures/Wikipedia/WallSunSun.lean` it states the open conjectures that WSS primes
+exist and that there are infinitely many, each left as `sorry`. That repository has no Pisano
+periods and no proof of Wall's equivalence. Proving that its definition agrees with ours would
+be a natural next step.
 
 ## Definitions (`WSS/Pisano.lean`, `WSS/Frobenius.lean`, `WSS/Wall.lean`)
 
