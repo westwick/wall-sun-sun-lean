@@ -1,4 +1,4 @@
--- Run: cd lean && lake env lean scripts/Axioms.lean
+-- Run: lake env lean scripts/Axioms.lean
 -- Expected: every theorem depends only on [propext, Classical.choice, Quot.sound].
 import WSS
 open WSS

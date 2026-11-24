@@ -1,5 +1,12 @@
 # Lean 4 formalization: Wall's theorem on Fibonacci periods
 
+A machine-checked proof, in Lean 4 with Mathlib, of D. D. Wall's 1960 theorem connecting
+Wall–Sun–Sun primes to Pisano periods: for a prime `p ≠ 2, 5`,
+`p² ∣ F(p − (p/5))` if and only if `π(p²) = π(p)`.
+
+This is the formalization part of a larger research project on Wall–Sun–Sun primes by
+Andrew Westwick.
+
 Lean 4.37.0-rc1 + Mathlib v4.37.0-rc1. About 800 lines in `WSS/`.
 
 **Status: everything listed under "Proved" below is PROVEN.** It compiles with no `sorry`,
@@ -10,7 +17,7 @@ this for every headline theorem.
 ## How to check
 
 ```bash
-cd lean
+lake exe cache get                 # download prebuilt Mathlib
 lake build                          # builds everything; should print "Build completed successfully"
 lake env lean scripts/Axioms.lean   # each line should end in [propext, Classical.choice, Quot.sound]
 python3 scripts/check_definitions.py   # independent numerical check of every statement (about 45 s)
@@ -143,6 +150,5 @@ come from secondary sources and should be checked against the original. The stat
   `π(p^e) = p^(e−t) π(p)` for `e ≥ t`. This needs a lifting-the-exponent argument for all
   `e`, generalizing `isFibPeriod_sq_of`.
 - `π(lcm(a, b)) = lcm(π(a), π(b))` (Wall 1960).
-- The same equivalence for general Lucas sequences, to support the generalized
-  Lucas–Wieferich search in `compute/`.
+- The same equivalence for general Lucas sequences (generalized Lucas–Wieferich primes).
 - Upstreaming `pisano` and the Frobenius lemmas to Mathlib.
