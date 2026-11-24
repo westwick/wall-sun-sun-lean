@@ -13,7 +13,8 @@ example : 7 ∣ Nat.fib 8 := by decide
 example : ¬ (7 ^ 2 ∣ Nat.fib 8) := by decide
 
 /-- Mathlib's Fibonacci addition formula is available. -/
-example (m n : ℕ) : Nat.fib (m + n + 1) = Nat.fib m * Nat.fib n + Nat.fib (m + 1) * Nat.fib (n + 1) :=
+example (m n : ℕ) :
+    Nat.fib (m + n + 1) = Nat.fib m * Nat.fib n + Nat.fib (m + 1) * Nat.fib (n + 1) :=
   Nat.fib_add m n
 
 end WSS.Smoke
